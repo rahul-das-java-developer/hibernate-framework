@@ -23,13 +23,29 @@ public class BasicDriver {
 		EntityTransaction transaction = manager.getTransaction();
 		
 		Student std=new Student();
-		std.setId(101);
-		std.setName("Rahul Das");
-		std.setAge(22);
+		std.setId(103);
+		std.setName("Girish Pujar");
+		std.setAge(25);
 		
 		transaction.begin();
 		manager.persist(std);
 		transaction.commit();
+		
+		int id=22;
+		Student std1=manager.find(Student.class, id);
+		
+		if(std1!=null) {
+			
+			transaction.begin();
+			manager.remove(std1);
+			transaction.commit();
+			System.out.println("Record saved!");
+		}
+		else {
+			System.out.println("Invalid Id!!!");
+		}
+		
+		
 		
 		
 		
