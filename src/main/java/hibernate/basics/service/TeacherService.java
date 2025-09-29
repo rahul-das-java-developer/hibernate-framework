@@ -65,6 +65,7 @@ public class TeacherService {
 		
 	}
 	
+	
 	public void exitApp() {
 		scn.close();
 		manager.close();
