@@ -68,20 +68,7 @@ public class CarDriver {
 			transaction.commit();
 			
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+				
 
 	}
 }
