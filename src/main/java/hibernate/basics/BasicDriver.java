@@ -31,7 +31,7 @@ public class BasicDriver {
 		std.setAge(20);
 		manager.persist(std);
 		transaction.commit();
-		System.out.println("Record saved!!!!!!!!!!!!!");
+		System.out.println("Record saved!!");
 		
 
 		// DELETE
@@ -43,7 +43,7 @@ public class BasicDriver {
 			transaction.begin();
 			manager.remove(std1);
 			transaction.commit();
-			System.out.println("Record removed!!!!!!!!!!!");
+			System.out.println("Record removed!!");
 		} else {
 			System.out.println("Invalid Id!!!");
 		}
@@ -58,7 +58,7 @@ public class BasicDriver {
 			std2.setName("Prajwal Patil");
 			manager.merge(std2);
 			transaction.commit();
-			System.out.println("Record updated!!!!!!!!!!!");
+			System.out.println("Record updated!!");
 		} else {
 			System.out.println("Invalid Id!!!");
 		}
@@ -69,7 +69,7 @@ public class BasicDriver {
 		if (std3 != null) {
 			
 			System.out.println("Name: "+std3.getName()+", Age: "+std3.getAge());
-			System.out.println("Record fetched!!!!!!!!!!");
+			System.out.println("Record fetched!!");
 		} else {
 			System.out.println("Invalid Id!!!");
 		}
