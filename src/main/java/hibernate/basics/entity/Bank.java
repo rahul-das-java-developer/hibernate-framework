@@ -2,6 +2,7 @@ package hibernate.basics.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -12,7 +13,7 @@ public class Bank {
 	private int id;
 	private String name;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Accounts> account;
 
 	public int getId() {

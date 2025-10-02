@@ -20,7 +20,9 @@ public class BankDriver {
 		EntityManager manager = factory.createEntityManager();
 
 		EntityTransaction transaction = manager.getTransaction();
+		transaction.begin();
 
+		// INSERT
 		Bank bank = new Bank();
 		bank.setId(103);
 		bank.setName("Axis");
@@ -41,13 +43,13 @@ public class BankDriver {
 
 		bank.setAccount(accList);
 
-		transaction.begin();
 		manager.persist(bank);
 		manager.persist(acc1);
 		manager.persist(acc2);
 		transaction.commit();
 		
 		
+		// FETCH
 		Bank bank1 = manager.find(Bank.class, 103);
 		if(bank1!=null) {
 			System.out.println("-----------------------------------------------");
@@ -63,7 +65,59 @@ public class BankDriver {
 				System.out.println("-----------------------------------------------");
 			}
 		}
+		
+		// UPDATE ALL
+		Bank bank2 = manager.find(Bank.class, 101);
+		if(bank2!=null)
+		{
+			List<Accounts> accList2 = bank2.getAccount();
+			bank2.setName("ICICI");
+			for (Accounts acc : accList2) {
+				acc.setBalance(acc.getBalance()+10000);
+				manager.merge(acc); // we are not using casecadeType we've to merge() both
+			}
+			manager.merge(bank2);
+			transaction.commit();
+		}
 
+		// UPDATE Individual Account
+		Accounts accUpdate = null;
+		Bank bank3 = manager.find(Bank.class, 101);
+		if(bank3!=null) {
+			List<Accounts> accList3 = bank3.getAccount();
+			for (Accounts acc : accList3) {
+				if(acc.getId()==202) {
+					accUpdate=acc;	// We should'nt update anything inside a running loop it might through RTE
+				}	
+			}
+		}
+		accUpdate.setAccHolder("Virat Kohli");
+		manager.merge(accUpdate);
+		manager.merge(bank3);
+		transaction.commit();
+		
+		// DELETE using CascadeType.ALL
+		Bank bank4=manager.find(Bank.class,103);
+		if(bank4!=null) {
+			manager.remove(bank4);	// Delete Bank as well as Accounts also
+			transaction.commit();
+		}
+		
+		// Add Account in an Existing Bank
+		Bank bank5 = manager.find(Bank.class, 101);
+		if(bank5!=null) {
+			Accounts acc=new Accounts();
+			acc.setId(206);
+			acc.setAccHolder("Md. Siraj");
+			acc.setBalance(56000);
+			List<Accounts> accList4 = bank5.getAccount();
+			accList4.add(acc);
+			bank5.setAccount(accList4);
+			manager.merge(bank5);
+			transaction.commit();
+		}
+		
+		
 	}
 
 }
