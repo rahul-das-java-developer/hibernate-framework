@@ -117,6 +117,19 @@ public class BankDriver {
 			transaction.commit();
 		}
 		
+		// Deleting individual account
+		Bank bank6 = manager.find(Bank.class, 101);
+		if(bank6!=null) {
+			Accounts acc=manager.find(Accounts.class, 206);
+			if(acc!=null) {
+				bank6.getAccount().remove(acc);
+				manager.remove(acc);
+			}
+			manager.merge(bank6);
+			transaction.commit();
+		}
+		
+		
 		
 	}
 
