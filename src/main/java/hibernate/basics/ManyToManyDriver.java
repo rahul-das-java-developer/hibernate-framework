@@ -119,6 +119,62 @@ public class ManyToManyDriver {
 			}
 		}
 		
+		// UPDATE
+		
+//		Students std1 = manager.find(Students.class, 101);
+//		Subjects sub1 = null;
+//		
+//		if(std1!=null) {
+//			std1.setAge(23);
+//			List<Subjects> list = std1.getSubjects();
+//			for (Subjects s : list) {
+//				if(s.getId()==201) {
+//					sub1=s;
+//				}
+//			}
+//
+//			sub1.setName("Adv. JAVA");
+//			
+//			manager.merge(std1);
+//			manager.merge(sub1);
+//			transaction.commit();
+//			System.out.println("Updated!!");
+//		}
+		
+		
+		// DELETE student only
+		
+		Students std2 = manager.find(Students.class, 102);
+		
+		if(std2!=null) {
+			
+			manager.remove(std2);
+			transaction.commit();
+			System.out.println("Deleted!!");
+				
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 
 	}
