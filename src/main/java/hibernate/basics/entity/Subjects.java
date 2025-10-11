@@ -10,6 +10,7 @@ public class Subjects {
 	private int id;
 	private String name;
 	private int days;
+	
 	public int getId() {
 		return id;
 	}
