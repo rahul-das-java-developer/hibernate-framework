@@ -12,7 +12,7 @@ public class Car2 {
 	private String name;
 	private long price;
 	
-	@OneToOne(mappedBy = "car2")
+	@OneToOne(mappedBy = "car2",cascade = CascadeType.ALL)
 	private Engine2 engine2;
 
 	public int getId() {

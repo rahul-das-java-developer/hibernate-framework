@@ -44,14 +44,13 @@ public class OneToManyBiDirection {
 //		accList.add(acc2);
 //
 //		bank.setAccount2(accList);
-//		
 //
 //		transaction.begin();
 //		manager.persist(bank);
 //		transaction.commit();
 		
 		
-//		// FETCH
+//		// FETCH both using bank
 //		Bank bank1 = manager.find(Bank.class, 103);
 //		if(bank1!=null) {
 //			System.out.println("-----------------------------------------------");
@@ -67,6 +66,10 @@ public class OneToManyBiDirection {
 //				System.out.println("-----------------------------------------------");
 //			}
 //		}
+		
+		// FETCH both using accounts
+//		Accounts2
+		
 //		
 //		// UPDATE ALL
 //		Bank bank2 = manager.find(Bank.class, 101);
@@ -98,39 +101,15 @@ public class OneToManyBiDirection {
 //		manager.merge(bank3);
 //		transaction.commit();
 //		
-//		// DELETE using CascadeType.ALL
+//		// DELETE both using CascadeType.ALL
 //		Bank bank4=manager.find(Bank.class,103);
 //		if(bank4!=null) {
 //			manager.remove(bank4);	// Delete Bank as well as Accounts also
 //			transaction.commit();
 //		}
-//		
-//		// Add Account in an Existing Bank
-//		Bank bank5 = manager.find(Bank.class, 101);
-//		if(bank5!=null) {
-//			Accounts acc=new Accounts();
-//			acc.setId(206);
-//			acc.setAccHolder("Md. Siraj");
-//			acc.setBalance(56000);
-//			List<Accounts> accList4 = bank5.getAccount();
-//			accList4.add(acc);
-//			bank5.setAccount(accList4);
-//			manager.merge(bank5);
-//			transaction.commit();
-//		}
-//		
+//			
 //		// Deleting individual account
-//		Bank bank6 = manager.find(Bank.class, 101);
-//		if(bank6!=null) {
-//			Accounts acc=manager.find(Accounts.class, 206);
-//			if(acc!=null) {
-//				bank6.getAccount().remove(acc);
-//				manager.remove(acc);
-//			}
-//			manager.merge(bank6);
-//			transaction.commit();
-//		}
-		
+//		
 
 	}
 

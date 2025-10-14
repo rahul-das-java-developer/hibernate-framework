@@ -17,14 +17,14 @@ public class OneToOneBiDirection {
 
 //		// INSERT both
 //		Car2 car = new Car2();
-//		car.setId(101);
-//		car.setName("BMW");
-//		car.setPrice(8564236);
+//		car.setId(104);
+//		car.setName("Lamborghini");
+//		car.setPrice(520000);
 //
 //		Engine2 engine = new Engine2();
-//		engine.setId(201);
-//		engine.setFuelType("Prtrol");
-//		engine.setCc(3200);
+//		engine.setId(203);
+//		engine.setFuelType("CNG");
+//		engine.setCc(5500);
 //
 //		car.setEngine2(engine);
 //		engine.setCar2(car);
@@ -34,8 +34,8 @@ public class OneToOneBiDirection {
 //		manager.persist(engine);
 //		transaction.commit();
 //		System.out.println("Data inserted!!");
-//
-//
+
+
 //		// FETCH both using car
 //		Car2 car1 = manager.find(Car2.class, 101);
 //		if (car1 != null) {
@@ -61,18 +61,18 @@ public class OneToOneBiDirection {
 //		}
 //	
 //
-		// DELETE both using engine ??not possible coz of cascadeType
-		transaction.begin();
-		Engine2 e2 = manager.find(Engine2.class, 201);
-		System.out.println(e2);
-		
-		if (e2 != null) {
-			System.out.println("inside");
-			manager.remove(e2);
-			transaction.commit();
-			System.out.println("operation end");
-			
-		}
+//		// DELETE both using engine ??not possible coz of cascadeType
+//		transaction.begin();
+//		Engine2 e2 = manager.find(Engine2.class, 201);
+//		System.out.println(e2);
+//		
+//		if (e2 != null) {
+//			System.out.println("inside");
+//			manager.remove(e2);
+//			transaction.commit();
+//			System.out.println("operation end");
+//			
+//		}
 //
 //		// UPDATE both using car
 //		transaction.begin();

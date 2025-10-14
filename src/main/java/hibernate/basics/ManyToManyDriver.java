@@ -150,7 +150,7 @@ public class ManyToManyDriver {
 //		}
 		
 		
-//		
+		
 //		// DELETE student only
 //		Students std2 = manager.find(Students.class, 102);
 //		if(std2!=null) {			
@@ -158,10 +158,10 @@ public class ManyToManyDriver {
 //			manager.remove(std2);
 //			transaction.commit();
 //			System.out.println("Deleted!!");
-//				
+//			
 //		}
+
 		
-	
 		
 
 	}
