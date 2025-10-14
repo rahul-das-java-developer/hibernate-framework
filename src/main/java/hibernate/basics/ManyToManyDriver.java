@@ -18,7 +18,6 @@ public class ManyToManyDriver {
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
 		
-//		transaction.begin();
 		
 		
 		// INSERT both
@@ -42,6 +41,7 @@ public class ManyToManyDriver {
 //		subList.add(sub2);
 //		std.setSubjects(subList);
 //		
+//		transaction.begin();
 //		manager.persist(std);
 //		manager.persist(sub1);
 //		manager.persist(sub2);
@@ -62,6 +62,8 @@ public class ManyToManyDriver {
 //			subList.add(s1);
 //			subList.add(s2);
 //			std.setSubjects(subList);
+//			
+//			transaction.begin();
 //			manager.persist(std);
 //			transaction.commit();
 //			System.out.println("Adding new Student in Existing Subjects done!!!!");
@@ -95,6 +97,7 @@ public class ManyToManyDriver {
 //			
 //			std1.setSubjects(subList);
 //			std2.setSubjects(subList);
+//			transaction.begin();
 //			manager.persist(std1);
 //			manager.persist(std2);
 //			manager.persist(s3);
@@ -115,68 +118,50 @@ public class ManyToManyDriver {
 		}
 
 		
-		// UPDATE both using students
+//		// UPDATE both using students
 //		Students std1 = manager.find(Students.class, 101);
 //		Subjects sub1 = null;
 //		
 //		if(std1!=null) {
-//			std1.setAge(23);
+//			std1.setAge(20);
+//			std1.setName("Rahul_Das");
 //			List<Subjects> list = std1.getSubjects();
 //			for (Subjects s : list) {
 //				if(s.getId()==201) {
 //					sub1=s;
 //				}
 //			}
-//
-//			sub1.setName("Adv. JAVA"); // but we can't do this in real time	
+//			sub1.setName("Python"); // but we can't do this in real time	
+//			transaction.begin();
 //			manager.merge(std1);
 //			manager.merge(sub1);
 //			transaction.commit();
 //			System.out.println("Updated!!");
+//		}.
+		
+//		// UPDATE subject only
+//		Subjects sub = manager.find(Subjects.class, 201);
+//		if(sub!=null) {
+//			sub.setName("JAVA");
+//			transaction.begin();
+//			manager.merge(sub);
+//			transaction.commit();
+//			System.out.println("Updated!!");	
 //		}
-//		
+		
+		
 //		
 //		// DELETE student only
 //		Students std2 = manager.find(Students.class, 102);
 //		if(std2!=null) {			
+//			transaction.begin();
 //			manager.remove(std2);
 //			transaction.commit();
 //			System.out.println("Deleted!!");
 //				
 //		}
 		
-		
-		// DELETE subjects only  ?? not possible ??
-		transaction.begin();
-		Subjects sub2 = manager.find(Subjects.class, 203);
-		if(sub2!=null) {			
-			manager.remove(sub2);
-			transaction.commit();
-			System.out.println("Deleted!!");
-			
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 
 	}

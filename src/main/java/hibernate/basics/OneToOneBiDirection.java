@@ -61,7 +61,7 @@ public class OneToOneBiDirection {
 //		}
 //	
 //
-		// DELETE both using engine ??not possible
+		// DELETE both using engine ??not possible coz of cascadeType
 		transaction.begin();
 		Engine2 e2 = manager.find(Engine2.class, 201);
 		System.out.println(e2);
