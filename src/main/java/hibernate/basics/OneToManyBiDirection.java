@@ -11,7 +11,6 @@ import javax.persistence.Persistence;
 import hibernate.basics.entity.Accounts2;
 import hibernate.basics.entity.Bank2;
 
-
 public class OneToManyBiDirection {
 
 	public static void main(String[] args) {
@@ -47,50 +46,52 @@ public class OneToManyBiDirection {
 //
 //		transaction.begin();
 //		manager.persist(bank);
-//		transaction.commit();
-		
-		
+//		transaction.commit();xj
+
 //		// FETCH both using bank
-//		Bank bank1 = manager.find(Bank.class, 103);
+//		Bank2 bank1 = manager.find(Bank2.class, 102);
 //		if(bank1!=null) {
 //			System.out.println("-----------------------------------------------");
 //			System.out.println("Bank Id: "+bank1.getId()+", Bank Name: "+bank1.getName());
 //			
-//			List<Accounts> accList1 = bank1.getAccount();
+//			List<Accounts2> accList1 = bank1.getAccount2();
 //			
 //			if(accList1!=null) {
-//				for (Accounts acc : accList1) {
+//				for (Accounts2 acc : accList1) {
 //					System.out.println("-----------------------------------------------");
 //					System.out.println(acc);
 //				}
 //				System.out.println("-----------------------------------------------");
 //			}
 //		}
-		
-		// FETCH both using accounts
-//		Accounts2
-		
+
+//		// FETCH both using accounts
+//		Accounts2 acc = manager.find(Accounts2.class, 202);
+//		if(acc!=null) {
+//			System.out.println(acc.getAccHolder()+" has his account on "+ acc.getBank().getName()+" bank!!");
+//		}
+
 //		
 //		// UPDATE ALL
-//		Bank bank2 = manager.find(Bank.class, 101);
-//		if(bank2!=null)
-//		{
-//			List<Accounts> accList2 = bank2.getAccount();
+//		transaction.begin();
+//		Bank2 bank2 = manager.find(Bank2.class, 101);
+//		if (bank2 != null) {
 //			bank2.setName("ICICI");
-//			for (Accounts acc : accList2) {
-//				acc.setBalance(acc.getBalance()+10000);
-//				manager.merge(acc); // we are not using casecadeType we've to merge() both
+//			List<Accounts2> accList2 = bank2.getAccount2();
+//			for (Accounts2 acc : accList2) {
+//				acc.setBalance(acc.getBalance() + 100);
 //			}
+//			 bank2.setAccount2(accList2); ????
 //			manager.merge(bank2);
 //			transaction.commit();
 //		}
 //
 //		// UPDATE Individual Account
-//		Accounts accUpdate = null;
-//		Bank bank3 = manager.find(Bank.class, 101);
+//		Accounts2 accUpdate = null;
+//		Bank2 bank3 = manager.find(Bank2.class, 101);
 //		if(bank3!=null) {
-//			List<Accounts> accList3 = bank3.getAccount();
-//			for (Accounts acc : accList3) {
+//			List<Accounts2> accList3 = bank3.getAccount2();
+//			for (Accounts2 acc : accList3) {
 //				if(acc.getId()==202) {
 //					accUpdate=acc;	// We should'nt update anything inside a running loop it might through RTE
 //				}	
@@ -101,15 +102,14 @@ public class OneToManyBiDirection {
 //		manager.merge(bank3);
 //		transaction.commit();
 //		
-//		// DELETE both using CascadeType.ALL
-//		Bank bank4=manager.find(Bank.class,103);
-//		if(bank4!=null) {
-//			manager.remove(bank4);	// Delete Bank as well as Accounts also
-//			transaction.commit();
-//		}
-//			
-//		// Deleting individual account
-//		
+		// DELETE both using CascadeType.ALL
+		transaction.begin();
+		Bank2 bank4=manager.find(Bank2.class,101);
+		if(bank4!=null) {
+			manager.remove(bank4);	// Delete Bank as well as Accounts also
+			transaction.commit();
+		}
+	
 
 	}
 
