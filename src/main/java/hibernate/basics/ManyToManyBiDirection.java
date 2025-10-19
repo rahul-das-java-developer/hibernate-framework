@@ -93,7 +93,7 @@ public class ManyToManyBiDirection {
 		
 		
 		
-		
+//		Delete possible ??
 		
 		// DELETE Students
 		transaction.begin();
